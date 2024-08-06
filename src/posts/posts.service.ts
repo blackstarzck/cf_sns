@@ -86,7 +86,7 @@ export class PostsService {
       dto,
       this.postRepository,
       {
-        relations: ['author', 'images']
+        relations: ['author', 'images', 'comments'],
       },
       'posts'
     );
@@ -156,7 +156,7 @@ export class PostsService {
     const repository = this.getRepository(qr);
     
     const find = await repository.findOne({
-      relations: ['author', 'images'],
+      relations: ['author', 'images', 'comments'],
       where: { id }
     });
 
@@ -203,5 +203,11 @@ export class PostsService {
     if(!find) throw new NotFoundException();
 
     return this.postRepository.delete(id);
+  }
+
+  async checkPostExistsById(id: number){
+    return this.postRepository.exists({
+      where: { id }
+    });
   }
 }

@@ -16,6 +16,10 @@ import { PUBLIC_FOLDER_PATH } from './common/const/path.const';
 import { ImageModel } from './common/entity/image.entity';
 import { LogMiddleWare } from './common/middleware/log.middleware';
 import { ChatsModule } from './chats/chats.module';
+import { ChatsModel } from './chats/entity/chat.entity';
+import { MessagesModel } from './chats/messages/entity/messages.entity';
+import { CommentsModule } from './posts/comments/comments.module';
+import { CommentsModel } from './posts/comments/entity/comments.entity';
 
 @Module({
   imports: [
@@ -35,7 +39,10 @@ import { ChatsModule } from './chats/chats.module';
       entities: [
         PostsModel,
         UsersModel,
-        ImageModel
+        ImageModel,
+        ChatsModel,
+        MessagesModel,
+        CommentsModel
       ],
       synchronize: true // 개발환경에서는 편의상 true, 프로덕션 환경에서는 false
     }),
@@ -48,7 +55,8 @@ import { ChatsModule } from './chats/chats.module';
       rootPath: PUBLIC_FOLDER_PATH,
       serveRoot: '/public'
     }),
-    ChatsModule
+    ChatsModule,
+    CommentsModule
   ],
   controllers: [AppController],
   providers: [

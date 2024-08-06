@@ -4,7 +4,7 @@ import { UsersModel } from 'src/users/entity/users.entity';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 import { RegisterUserDto } from './dto/register-user.dto';
-import { ConfigService } from '@nestjs/config';
+import { ConfigService, getConfigToken } from '@nestjs/config';
 import { ENV_HASH_ROUNDS_KEY, ENV_JWT_SECRET_KEY } from 'src/common/const/env-keys.const';
 
 @Injectable()

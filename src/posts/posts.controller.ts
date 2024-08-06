@@ -48,7 +48,8 @@ export class PostsController {
     return true;
   }
 
-  @Get(':id/:name')
+  // @Get(':id/:name')
+  @Get(':id')
   getPost(
     @Param('name') name: string,
     @Param('id', ParseIntPipe) id: number // 파라미터가 여러개일 수 있다. :id/:name/:age 그 중 어떤 파라미터를 가져올지 Param 데코레이터 가져오고자 하는 파라미터 문자열을 넣어주면 된다

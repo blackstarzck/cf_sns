@@ -26,5 +26,8 @@ import { PostsImagesService } from './image/images.service';
     PostsService,
     PostsImagesService
   ],
+  exports: [
+    PostsService
+  ],
 })
 export class PostsModule {}
